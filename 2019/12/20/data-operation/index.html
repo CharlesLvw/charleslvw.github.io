@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>data-operation - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Charles Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="data-operation">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-12-20 18:03" pubdate>
+        2019年12月20日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">data-operation</h1>
+            
+            <div class="markdown-body">
+              <p>数据相关工作笔记<br>工作笔记，仅暂未心得分享</p>
+<h2 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h2><h5 id="删除带有镜像的库"><a href="#删除带有镜像的库" class="headerlink" title="删除带有镜像的库"></a>删除带有镜像的库</h5><blockquote>
+<p>查询此库当前所有进程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> spid <span class="hljs-keyword">from</span> sys.sysprocesses <span class="hljs-keyword">where</span> dbid<span class="hljs-operator">=</span>DB_ID(<span class="hljs-string">&#x27;&lt;dbname&gt;&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关闭进程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">kill <span class="hljs-operator">&lt;</span>pid<span class="hljs-operator">&gt;</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关闭镜像复制</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> DATABASE <span class="hljs-operator">&lt;</span>dbname<span class="hljs-operator">&gt;</span> <span class="hljs-keyword">SET</span> PARTNER OFF;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>删除数据库</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> DATABASE <span class="hljs-operator">&lt;</span>dbname<span class="hljs-operator">&gt;</span>;<br></code></pre></td></tr></table></figure>
+
+<h5 id="数据收缩"><a href="#数据收缩" class="headerlink" title="数据收缩"></a>数据收缩</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">DBCC SHRINKDATABASE<span class="hljs-operator">&lt;</span>dbname<span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="mongo"><a href="#mongo" class="headerlink" title="mongo"></a>mongo</h2><h5 id="mongoexport"><a href="#mongoexport" class="headerlink" title="mongoexport"></a>mongoexport</h5><ul>
+<li>不建议用于全量备份，通常用于备份或导出数据的一部分数据</li>
+</ul>
+<blockquote>
+<p>常用参数介绍</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs shell">Options:<br>--host &lt;hostname&gt;&lt;:port&gt;, -h &lt;hostname&gt;&lt;:port&gt;<br>Default: localhost:27017<br> <br>--port &lt;port&gt;<br>Default: 27017<br>Specifies the TCP port on which the MongoDB instance listens for client connections.<br> <br>--username &lt;username&gt;, -u &lt;username&gt;<br>Specifies a username with which to authenticate to a MongoDB database that uses authentication. Use in conjunction with the --password and --authenticationDatabase options.<br> <br>--password &lt;password&gt;, -p &lt;password&gt;<br>Specifies a password with which to authenticate to a MongoDB database that uses authentication. Use in conjunction with the --username and --authenticationDatabase options.<br> <br>--db &lt;database&gt;, -d &lt;database&gt;<br>Specifies the name of the database on which to run the mongoexport.<br> <br>--collection &lt;collection&gt;, -c &lt;collection&gt;<br>Specifies the collection to export.<br> <br>--fields &lt;field1[,field2]&gt;, -f &lt;field1[,field2]&gt;¶<br>Specifies a field or fields to include in the export. Use a comma separated list of fields to specify multiple fields.<br> <br> <br> <br>--csv<br>Changes the export format to a comma-separated-values (CSV) format. By default mongoexport writes data using one JSON document for every MongoDB document.<br> <br> <br>--out &lt;file&gt;, -o &lt;file&gt;<br>Specifies a file to write the export to. If you do not specify a file name, the mongoexport writes data to standard output (e.g. stdout).<br> <br>--jsonArray<br>Modifies the output of mongoexport to write the entire contents of the export as a single JSON array. By default mongoexport writes data using one JSON document for every MongoDB document<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>shell备份脚本如下</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> author:Charles</span><br><span class="hljs-meta">#</span><span class="bash"> date:2019-04-18</span><br>set -x<br><br>backuptime=$(/bin/date &quot;+%Y%m%d&quot;)<br>user=testAdmin<br>password=123456<br>backup_dir=/backup<br>port=27017<br>database=local<br><br>data=`/usr/bin/mongo 127.0.0.1 -u$&#123;user&#125; -p$&#123;password&#125; &lt;&lt;EOF<br>use local;<br>show collections;<br>exit;<br>EOF`<br><br>for gather in $&#123;data&#125;<br>do<br><span class="hljs-meta">#</span><span class="bash">json array</span><br><span class="hljs-meta">#</span><span class="bash">/usr/bin/mongoexport --port <span class="hljs-variable">$&#123;port&#125;</span> -u<span class="hljs-variable">$&#123;user&#125;</span> -p<span class="hljs-variable">$&#123;password&#125;</span> -d <span class="hljs-variable">$&#123;database&#125;</span> -c <span class="hljs-variable">$&#123;gather&#125;</span>  --jsonArray -o <span class="hljs-variable">$&#123;backup_dir&#125;</span><span class="hljs-variable">$&#123;backuptime&#125;</span>/<span class="hljs-variable">$&#123;gather&#125;</span>.json --authenticationDatabase <span class="hljs-built_in">test</span></span><br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash">csv document,must specify the fields <span class="hljs-keyword">in</span> the documents to <span class="hljs-built_in">export</span></span><br><span class="hljs-meta">#</span><span class="bash">/usr/bin/mongoexport --port <span class="hljs-variable">$&#123;port&#125;</span> -u<span class="hljs-variable">$&#123;user&#125;</span> -p<span class="hljs-variable">$&#123;password&#125;</span> -d <span class="hljs-variable">$&#123;database&#125;</span> -c <span class="hljs-variable">$&#123;gather&#125;</span>  --csv -f hostname,startTime -o <span class="hljs-variable">$&#123;backup_dir&#125;</span><span class="hljs-variable">$&#123;backuptime&#125;</span>/<span class="hljs-variable">$&#123;gather&#125;</span>.csv --authenticationDatabase <span class="hljs-built_in">test</span></span><br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash">json document</span><br>/usr/bin/mongoexport --port $&#123;port&#125; -u$&#123;user&#125; -p$&#123;password&#125; -d $&#123;database&#125; -c $&#123;gather&#125; -o $&#123;backup_dir&#125;$&#123;backuptime&#125;/$&#123;gather&#125;.json --authenticationDatabase test<br>done<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="PostgreSQL"><a href="#PostgreSQL" class="headerlink" title="PostgreSQL"></a>PostgreSQL</h2><h5 id="单库导入导出"><a href="#单库导入导出" class="headerlink" title="单库导入导出"></a>单库导入导出</h5><blockquote>
+<p>导出</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pg_dump -Upostgres &lt;dbname&gt; -c &gt; /bak/name.bak<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>导入</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">psql -U postgres -d dbname &lt; /bak/name.bak<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>若导入的库已存在并有数据，需要先drop库，再执行导入。若drop库时，库被占用则执行下面的语句清理，至返回值为无连接信息。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> pg_terminate_backend(pid) <span class="hljs-keyword">FROM</span> pg_stat_activity <span class="hljs-keyword">WHERE</span> pid <span class="hljs-operator">&lt;&gt;</span> pg_backend_pid() <span class="hljs-keyword">AND</span> datname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;dbname&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>drop库</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">drop</span> database dbname;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>新建库并附权</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> database dbname <span class="hljs-keyword">with</span> owner<span class="hljs-operator">=</span>username;<br></code></pre></td></tr></table></figure>
+
+<h5 id="修改用户属性"><a href="#修改用户属性" class="headerlink" title="修改用户属性"></a>修改用户属性</h5><ul>
+<li>具有CREATEROLE权限的用户或者超级用户才能执行该命令，option选项的含义参见CREATE USER命令。数据库超级用户可以修改任何普通用户的属性。只用postgres才能修改其它的超级用户的属性。一个用户只能修改自己的密码，不能修改自己的其它属性</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> name [ [ <span class="hljs-keyword">WITH</span> ] option [ ... ] ]<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中option可以是:</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">|</span> SUPERUSER  <span class="hljs-operator">|</span> NOSUPERUSER<br> <br><span class="hljs-operator">|</span> CREATEDB   <span class="hljs-operator">|</span> NOCREATEDB<br> <br><span class="hljs-operator">|</span> CREATEROLE <span class="hljs-operator">|</span> NOCREATEROLE<br> <br><span class="hljs-operator">|</span> CONNECTION LIMIT connlimit<br> <br><span class="hljs-operator">|</span> &#123;ENCRYPTED <span class="hljs-operator">|</span> UNENCRYPTED&#125; PASSWORD ’password’<br> <br><span class="hljs-operator">|</span> VALID UNTIL ’<span class="hljs-type">timestamp</span>’<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>例</li>
+</ul>
+<blockquote>
+<p>使数据库用户testname失去CREATEDB、CREATEROLE和LOGIN权限</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span>  testname  NOCREATEDB  NOCREATEROLE  NOLOGIN;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将用户testname的密码改为123123</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span>  <span class="hljs-keyword">USER</span>  testname  password <span class="hljs-string">&#x27;123123&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>只读用户</li>
+</ul>
+<blockquote>
+<p>新建用户</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> readall <span class="hljs-keyword">WITH</span> PASSWORD <span class="hljs-string">&#x27;passwd&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>用户只读事务</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> readall <span class="hljs-keyword">set</span> default_transaction_read_only<span class="hljs-operator">=</span><span class="hljs-keyword">on</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>把所有库的语言的USAGE权限赋予用户</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">GRANT</span> USAGE <span class="hljs-keyword">ON</span> SCHEMA public <span class="hljs-keyword">to</span> readall;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>授权库中所有表的select权限（必须进库授权，同表权限授权）</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">grant</span> <span class="hljs-keyword">select</span> <span class="hljs-keyword">on</span> <span class="hljs-keyword">all</span> tables <span class="hljs-keyword">in</span> schema public <span class="hljs-keyword">to</span> readall;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>新表自动附权</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">DEFAULT</span> PRIVILEGES <span class="hljs-keyword">IN</span> SCHEMA public <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">ON</span> TABLES <span class="hljs-keyword">TO</span> readall;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>清理归档日志</li>
+</ul>
+<blockquote>
+<p> 进入存放日志的目录</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /pg_data200/11/main/pg_wal<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>清理日志 &lt;00000001000000A10000006B&gt; 前的所有日志</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pg_archivecleanup . 00000001000000A10000006B<br></code></pre></td></tr></table></figure>
+<ul>
+<li>修改归档日志保留数量</li>
+</ul>
+<blockquote>
+<p>连接数据库查看当前保留数量</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> wal_keep_segments；<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>修改配置文件 wal_keep_segments 参数，reload服务使配置生效，下一次checkpoint时会自动清理，或手动执行checkpoint</p>
+</blockquote>
+<h2 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h2><h5 id="关于服务重启"><a href="#关于服务重启" class="headerlink" title="关于服务重启"></a>关于服务重启</h5><ol>
+<li><p>Oracle启动需要经历四个状态:SHUTDOWN 、NOMOUNT 、MOUNT 、OPEN</p>
+</li>
+<li><p>Oracle关闭的四种状态：Normal, Immediate, Transactional, Abort</p>
+</li>
+</ol>
+<blockquote>
+<p>Oracle数据库的完整启动过程是分步骤完成的，包含以下3个步骤：</p>
+</blockquote>
+<ul>
+<li>启动实例–&gt;加载数据库–&gt;打开数据库</li>
+</ul>
+<blockquote>
+<p>关闭数据库</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">shutdown immediate;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>开启数据库</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">startup;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>启动默认监听</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">lsnrctl start<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>启动指定监听</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">lsnrctl <span class="hljs-keyword">start</span> listener_name<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看当前启动状态，启动对应的状态</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> name,open_mode <span class="hljs-keyword">from</span> v$database;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>根据当前启动状态启动数据库</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> database <span class="hljs-operator">&lt;</span>status<span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="Oracle-CPU使用率过高排查"><a href="#Oracle-CPU使用率过高排查" class="headerlink" title="Oracle CPU使用率过高排查"></a>Oracle CPU使用率过高排查</h5><blockquote>
+<p>查看语句top10</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span><br><span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> v.sql_id,<br>v.child_number,<br>v.sql_fulltext,<br>v.elapsed_time,<br>v.cpu_time,<br>v.disk_reads,<br><span class="hljs-built_in">rank</span>() <span class="hljs-keyword">over</span>(<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> v.elapsed_time <span class="hljs-keyword">desc</span>) elapsed_rank<br><span class="hljs-keyword">from</span> v$<span class="hljs-keyword">sql</span> v) a<br><span class="hljs-keyword">where</span> elapsed_rank <span class="hljs-operator">&lt;=</span> <span class="hljs-number">10</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> cpu_time <span class="hljs-keyword">desc</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看CPU使用率最高及性能查询的语句</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">set</span> linesize <span class="hljs-number">600</span><br>col SQL_TEXT <span class="hljs-keyword">for</span> a500<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> sql_text,sql_id,cpu_time <span class="hljs-keyword">from</span> v$<span class="hljs-keyword">sql</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> cpu_time <span class="hljs-keyword">desc</span>) <span class="hljs-keyword">where</span> rownum<span class="hljs-operator">&lt;=</span><span class="hljs-number">10</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> rownum <span class="hljs-keyword">asc</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看使用频率最高的5个查询</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> sql_text,executions<br><span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> sql_text,executions,<br><span class="hljs-built_in">rank</span>() <span class="hljs-keyword">over</span><br>(<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> executions <span class="hljs-keyword">desc</span>) exec_rank<br><span class="hljs-keyword">from</span> v$<span class="hljs-keyword">sql</span>)<br><span class="hljs-keyword">where</span> exec_rank <span class="hljs-operator">&lt;=</span><span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看消耗磁盘读取最多的sql top5</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> disk_reads,sql_text<br><span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> sql_text,disk_reads,<br><span class="hljs-built_in">dense_rank</span>() <span class="hljs-keyword">over</span><br>(<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> disk_reads <span class="hljs-keyword">desc</span>) disk_reads_rank<br><span class="hljs-keyword">from</span> v$<span class="hljs-keyword">sql</span>)<br><span class="hljs-keyword">where</span> disk_reads_rank <span class="hljs-operator">&lt;=</span><span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看需要大量缓冲读取（逻辑读）操作的查询</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> buffer_gets,sql_text<br><span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> sql_text,buffer_gets,<br><span class="hljs-built_in">dense_rank</span>() <span class="hljs-keyword">over</span><br>(<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> buffer_gets <span class="hljs-keyword">desc</span>) buffer_gets_rank<br><span class="hljs-keyword">from</span> v$<span class="hljs-keyword">sql</span>)<br><span class="hljs-keyword">where</span> buffer_gets_rank<span class="hljs-operator">&lt;=</span><span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Oracle阻塞查询</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">with</span> vw_lock <span class="hljs-keyword">AS</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> v$lock)<br><span class="hljs-keyword">select</span><br>a.sid,<br><span class="hljs-string">&#x27;is blocking&#x27;</span>,<br>(<span class="hljs-keyword">select</span> <span class="hljs-string">&#x27;sid:&#x27;</span><span class="hljs-operator">||</span>s.sid<span class="hljs-operator">||</span><span class="hljs-string">&#x27; object:&#x27;</span><span class="hljs-operator">||</span>do.object_name<span class="hljs-operator">||</span><span class="hljs-string">&#x27; rowid:&#x27;</span><span class="hljs-operator">||</span><br>    dbms_rowid.rowid_create ( <span class="hljs-number">1</span>, ROW_WAIT_OBJ#, ROW_WAIT_FILE#, ROW_WAIT_BLOCK#, ROW_WAIT_ROW# )<br>    <span class="hljs-operator">||</span><span class="hljs-string">&#x27; sql_id:&#x27;</span><span class="hljs-operator">||</span>s.sql_id<br>   <span class="hljs-keyword">from</span> v$session s, dba_objects do<br>    <span class="hljs-keyword">where</span> s.sid<span class="hljs-operator">=</span>b.sid<br>    <span class="hljs-keyword">and</span> s.ROW_WAIT_OBJ# <span class="hljs-operator">=</span> do.OBJECT_ID<br>) blockee,<br>b.sid,b.id1,b.id2<br><span class="hljs-keyword">from</span> vw_lock a, vw_lock b<br><span class="hljs-keyword">where</span> a.block <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br><span class="hljs-keyword">and</span> b.request <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span><br><span class="hljs-keyword">and</span> a.id1 <span class="hljs-operator">=</span> b.id1<br><span class="hljs-keyword">and</span> a.id2 <span class="hljs-operator">=</span> b.id2;<br></code></pre></td></tr></table></figure>
+
+<h5 id="用户被锁"><a href="#用户被锁" class="headerlink" title="用户被锁"></a>用户被锁</h5><blockquote>
+<p>查询当前所有用户锁状态及时间</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> username,account_status,lock_date <span class="hljs-keyword">from</span> dba_users;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解锁</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-operator">&lt;</span>username<span class="hljs-operator">&gt;</span> account unlock;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><h5 id="mysqldump-备份数据"><a href="#mysqldump-备份数据" class="headerlink" title="mysqldump 备份数据"></a>mysqldump 备份数据</h5><blockquote>
+<p>逻辑备份sql语句</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">-u 用户名<br>-p 密码<br>-A 所有的库<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>single-transaction INNODB存储引擎的表备份时能够做到数据一致</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mysqldump -uroot -puplooking -A --single-transaction &gt; /tmp/mysql_bak.sql<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>lock-all-tables MYISAM存储引擎的表备份时能够做到数据一致</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mysqldump -uroot -puplooking -A --lock-all-tables &gt; /tmp/mysql_bak.sql<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通过binlog还原</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">mysqlbinlog <span class="hljs-comment">--start-datetime=&quot;2019-11-07 12:01:00&quot;  --stop-datetime=&quot;2018-19-07 12:30:00&quot; /data/mysql/data/mysql-bin.000020 &gt;&gt; /home/madong/aa.sql</span><br>mysql <span class="hljs-operator">-</span>uroot <span class="hljs-operator">-</span>p <span class="hljs-operator">&lt;</span>database<span class="hljs-operator">&gt;</span> <span class="hljs-operator">&lt;</span> <span class="hljs-operator">/</span>home<span class="hljs-operator">/</span>madong<span class="hljs-operator">/</span>aa.sql<br></code></pre></td></tr></table></figure>
+
+<h5 id="批量修改字段"><a href="#批量修改字段" class="headerlink" title="批量修改字段"></a>批量修改字段</h5><blockquote>
+<p>例： 修改test表中的guid字段，将其中的test更换为testting</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">update test <span class="hljs-keyword">set</span> guid<span class="hljs-operator">=</span>replace(guid,<span class="hljs-string">&#x27;http://testting&#x27;</span>,<span class="hljs-string">&#x27;http://test/1/2&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h5 id="查看字符集、表排序"><a href="#查看字符集、表排序" class="headerlink" title="查看字符集、表排序"></a>查看字符集、表排序</h5><blockquote>
+<p>指定表查询</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> <span class="hljs-operator">&lt;</span>tablename<span class="hljs-operator">&gt;</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>针对全局或当前库查询</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> (<span class="hljs-keyword">global</span>) variables <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;%coll%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h5 id="清理mysq系统日志"><a href="#清理mysq系统日志" class="headerlink" title="清理mysq系统日志"></a>清理mysq系统日志</h5><ul>
+<li>以清理err日志为例</li>
+</ul>
+<blockquote>
+<p>确定日志文件信息</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">global</span> variables <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;%log%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>修改源日志名称</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mv &lt;name.err&gt; &lt;name.err.bak&gt;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>刷新mysql配置环境，重新加载相关文件（热加载）</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">FLUSH ERROR LOGS<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/databases/">databases</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/SqlServer/">SqlServer</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Mysql/">Mysql</a>
+                    
+                      <a class="hover-with-bg" href="/tags/PostgreSql/">PostgreSql</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Oracle/">Oracle</a>
+                    
+                      <a class="hover-with-bg" href="/tags/mongo/">mongo</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/12/23/Chilli_oil/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">辣椒油</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
